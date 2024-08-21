@@ -59,9 +59,9 @@ const HomePage = ({ movies, footerRef }) => {
               </div>
             ))
           ) : (
-            <div className="flex items-center justify-center">
+            <div className="loader flex items-center justify-center w-full min-h-[90vh]">
               <Blocks
-                height="90vh"
+                height="80"
                 width="80"
                 color="#4fa94d"
                 ariaLabel="blocks-loading"
