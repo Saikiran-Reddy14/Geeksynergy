@@ -50,10 +50,17 @@ const Login = ({ users, loggedInUser, setLoggedInUser, setMovies }) => {
 
   return (
     <Container
-      className="mt-4"
-      style={{ maxWidth: "400px", border: "2px solid #555", padding: "40px" }}
+      className="mt-5 p-4"
+      style={{
+        maxWidth: "400px",
+        borderRadius: "12px",
+        boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+        background: "linear-gradient(135deg, #ffffff, #e9ecef)",
+      }}
     >
-      <h1 style={{ textAlign: "center" }}>Login</h1>
+      <h1 className="text-center mb-4" style={{ color: "#333" }}>
+        Login
+      </h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formEmail">
           <Form.Label>Email</Form.Label>
@@ -61,26 +68,51 @@ const Login = ({ users, loggedInUser, setLoggedInUser, setMovies }) => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter email"
+            placeholder="Enter your email"
+            style={{
+              borderRadius: "8px",
+              boxShadow: "inset 0 1px 3px rgba(0,0,0,0.1)",
+            }}
           />
         </Form.Group>
 
-        <Form.Group controlId="formPassword">
+        <Form.Group controlId="formPassword" className="mt-3">
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter password"
+            placeholder="Enter your password"
+            style={{
+              borderRadius: "8px",
+              boxShadow: "inset 0 1px 3px rgba(0,0,0,0.1)",
+            }}
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit" className="mt-2">
+        <Button
+          variant="primary"
+          type="submit"
+          className="w-100 mt-4"
+          style={{
+            backgroundColor: "#007bff",
+            borderColor: "#007bff",
+            borderRadius: "8px",
+            boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+          }}
+        >
           Login
         </Button>
       </Form>
       {errorMessage && (
-        <Alert variant="danger" className="mt-3">
+        <Alert
+          variant="danger"
+          className="mt-4"
+          style={{
+            borderRadius: "8px",
+            boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+          }}
+        >
           {errorMessage}
         </Alert>
       )}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, Form, Button, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css"; // Ensure Bootstrap CSS is imported
 
 const Signup = ({ saveUsers, users }) => {
   const [name, setName] = useState("");
@@ -38,10 +39,17 @@ const Signup = ({ saveUsers, users }) => {
   return (
     <>
       <Container
-        className="mt-4"
-        style={{ maxWidth: "400px", border: "2px solid #555", padding: "40px" }}
+        className="mt-5 p-4"
+        style={{
+          maxWidth: "500px",
+          borderRadius: "12px",
+          boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+          background: "linear-gradient(135deg, #f5f7fa, #c3cfe2)",
+        }}
       >
-        <h1 style={{ textAlign: "center" }}>Signup</h1>
+        <h1 className="text-center mb-4" style={{ color: "#333" }}>
+          Signup
+        </h1>
 
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formName">
@@ -50,48 +58,68 @@ const Signup = ({ saveUsers, users }) => {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Enter name"
+              placeholder="Enter your name"
+              style={{
+                borderRadius: "8px",
+                boxShadow: "inset 0 1px 3px rgba(0,0,0,0.1)",
+              }}
             />
           </Form.Group>
 
-          <Form.Group controlId="formEmail">
+          <Form.Group controlId="formEmail" className="mt-3">
             <Form.Label>Email address</Form.Label>
             <Form.Control
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter email"
+              placeholder="Enter your email"
+              style={{
+                borderRadius: "8px",
+                boxShadow: "inset 0 1px 3px rgba(0,0,0,0.1)",
+              }}
             />
           </Form.Group>
 
-          <Form.Group controlId="formPassword">
+          <Form.Group controlId="formPassword" className="mt-3">
             <Form.Label>Password</Form.Label>
             <Form.Control
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password"
+              placeholder="Enter your password"
+              style={{
+                borderRadius: "8px",
+                boxShadow: "inset 0 1px 3px rgba(0,0,0,0.1)",
+              }}
             />
           </Form.Group>
 
-          <Form.Group controlId="formPhone">
+          <Form.Group controlId="formPhone" className="mt-3">
             <Form.Label>Phone Number</Form.Label>
             <Form.Control
               type="tel"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              placeholder="Enter phone number"
+              placeholder="Enter your phone number"
+              style={{
+                borderRadius: "8px",
+                boxShadow: "inset 0 1px 3px rgba(0,0,0,0.1)",
+              }}
             />
           </Form.Group>
 
-          <Form.Group controlId="formProfession">
+          <Form.Group controlId="formProfession" className="mt-3">
             <Form.Label>Profession</Form.Label>
             <Form.Control
               as="select"
               value={profession}
               onChange={(e) => setProfession(e.target.value)}
+              style={{
+                borderRadius: "8px",
+                boxShadow: "inset 0 1px 3px rgba(0,0,0,0.1)",
+              }}
             >
-              <option value="">Select profession</option>
+              <option value="">Select your profession</option>
               {professions.map((p) => (
                 <option key={p} value={p}>
                   {p}
@@ -100,16 +128,31 @@ const Signup = ({ saveUsers, users }) => {
             </Form.Control>
           </Form.Group>
 
-          <Button variant="primary" type="submit" className="mt-2">
+          <Button
+            variant="primary"
+            type="submit"
+            className="w-100 mt-4"
+            style={{
+              backgroundColor: "#007bff",
+              borderColor: "#007bff",
+              borderRadius: "8px",
+              boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+            }}
+          >
             Submit
           </Button>
         </Form>
       </Container>
+
       {errorMessage && (
         <Alert
           variant="danger"
           className="m-3 mx-auto"
-          style={{ maxWidth: "400px" }}
+          style={{
+            maxWidth: "500px",
+            borderRadius: "8px",
+            boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+          }}
         >
           {errorMessage}
         </Alert>
