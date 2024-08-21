@@ -31,19 +31,16 @@ const Login = ({ users, loggedInUser, setLoggedInUser, setMovies }) => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(
-        "https://cors-anywhere.herokuapp.com/https://hoblist.com/api/movieList",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            category: "movies",
-            language: "kannada",
-            genre: "all",
-            sort: "voting",
-          }),
-        }
-      );
+      const response = await fetch("https://hoblist.com/api/movieList", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          category: "movies",
+          language: "kannada",
+          genre: "all",
+          sort: "voting",
+        }),
+      });
       const data = await response.json();
       setMovies(data.result);
     } catch (error) {
